@@ -27,7 +27,8 @@ class TestMyModule(unittest.TestCase):
         c2 = complex(1,4)
         self.assertEqual( complex(di[0],di[1]), c1/c2)
     def test_mod(self):
-        self.assertEqual(calcomplex.mod([4,3]), 5)
+        m = cmath.polar(complex(4,3))
+        self.assertEqual(calcomplex.mod([4,3]), m[0])
     def test_conj(self):
         self.assertEqual(calcomplex.conj([3,-1]), [3,1])
     def test_pol(self):

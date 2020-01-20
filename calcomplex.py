@@ -46,8 +46,9 @@ def conj(c1):
 def pol(c1):
     ang = math.degrees(math.atan(c1[1]/c1[0]))
     p = mod(c1)
+    print('el vector tiene longitud '+str(p)+' desde el origen en un angulo de '+str(ang))
     return [p,ang]
-    #print('el vector tiene longitud '+str(p)+' desde el origen en un angulo de '+str(ang))
+    
     
 
 def cart(p,ang):
@@ -58,6 +59,7 @@ def cart(p,ang):
     #print('rta: ( '+str(a)+', '+str(b)+'i )')
 
 
+pol([4,3])
 
 """def main():
     while True:
