@@ -12,11 +12,20 @@ class TestMyModule(unittest.TestCase):
         c2 = complex(1,4)
         self.assertEqual( complex(su[0],su[1]), c1+c2)
     def test_sub(self):
-        self.assertEqual(calcomplex.resta([3,-1],[1,4]), [2,-5])
+        re = calcomplex.resta([3,-1],[1,4])
+        c1 = complex(3,-1)
+        c2 = complex(1,4)
+        self.assertEqual( complex(re[0],re[1]), c1-c2)
     def test_mult(self):
-        self.assertEqual(calcomplex.mult([3,-1],[1,4]), [7,11])
+        mu = calcomplex.mult([3,-1],[1,4])
+        c1 = complex(3,-1)
+        c2 = complex(1,4)
+        self.assertEqual( complex(mu[0],mu[1]), c1*c2)
     def test_div(self):
-        self.assertEqual(calcomplex.div([-2,1],[1,2]), [0,1])
+        di = calcomplex.div([3,-1],[1,4])
+        c1 = complex(3,-1)
+        c2 = complex(1,4)
+        self.assertEqual( complex(di[0],di[1]), c1/c2)
     def test_mod(self):
         self.assertEqual(calcomplex.mod([4,3]), 5)
     def test_conj(self):
