@@ -59,7 +59,52 @@ def cart(p,ang):
     #print('rta: ( '+str(a)+', '+str(b)+'i )')
 
 
-pol([4,3])
+
+
+def sumvect(v1,v2):
+    sol = []
+    if len(v1)!=len(v2):
+        return
+    else:
+        for i in range(len(v1)):
+            sol.append(suma(v1[i],v2[i]))
+    return sol
+
+def invect(v1):
+    sol = []
+    for i in range(len(v1)):
+        sol.append([-v1[i][0],-v1[i][1]])
+    return sol
+
+def escxvec(es,v1):
+    sol = []
+    for i in range(len(v1)):
+        sol.append([es*v1[i][0],es*v1[i][1]])
+    return sol
+
+def sumatriz(m1,m2):
+    sol = []
+    if (len(m1)!=len(m2)) or (len(m1[0])!=len(m2[0])):
+        return 
+    else:
+        for i in range(len(m1)):
+            sol.append(list())
+            sol[i]=sumvect(m1[i],m2[i])
+    return sol
+
+def invmatriz(m1):
+    sol = []
+    for i in range(len(m1)):
+        sol.append(list())
+        sol[i]=invect(m1[i])
+    return sol
+
+
+
+print(invect([[1,2],[2,3]]))
+print(escxvec(5,[[1,2],[2,3]]))
+print(sumatriz([[[1,2],[2,3]],[[4,5],[6,7]]],[[[9,8],[8,7]],[[5,4],[1,0]]]))
+print(invmatriz([[[1,2],[2,3]],[[4,5],[6,7]]]))
 
 """def main():
     while True:
