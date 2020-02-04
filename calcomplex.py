@@ -99,14 +99,41 @@ def invmatriz(m1):
         sol[i]=invect(m1[i])
     return sol
 
+def escxmatr(e, m):
+    sol = []
+    for i in range(len(m)):
+        sol.append(list())
+        sol[i]=escxvec(e,m[i])
+    return sol
+
+def protens(m1,m2):
+    res = [[0 for i in range(len(m1)*len(m2))] for j in range(len(m1[0])*len(m2[0]))]
+    for i in range(len(m1)):
+        for j in range(len(m1[0])):
+            for k in range(len(m2)):
+                for l in range(len(m2[0])):
+                    res[len(m2)*i+k][len(m2[0])*j+l] = mult(m1[i][j],m2[k][l])
+    return res
+
+"""def mulmatr(m1,m2):
+    if(len(m1[0])!=len(m2)): return
+    sol = [[0 for i in range(len(m1))] for j in range(len(m2[0]))]
+    for i in range()"""
 
 
-print(invect([[1,2],[2,3]]))
+"""print(invect([[1,2],[2,3]]))
 print(escxvec(5,[[1,2],[2,3]]))
 print(sumatriz([[[1,2],[2,3]],[[4,5],[6,7]]],[[[9,8],[8,7]],[[5,4],[1,0]]]))
 print(invmatriz([[[1,2],[2,3]],[[4,5],[6,7]]]))
+print(escxmatr(5,[[[1,2],[2,3]],[[4,5],[6,7]]]))
+print(protens([[[1,2],[2,3]],[[4,5],[6,7]]],[[[9,8],[8,7]],[[5,4],[1,0]]]))
+"""
 
-"""def main():
+
+
+
+def main():
+    """
     while True:
         l = stdin.readline().strip() 
         if l == '': break
@@ -127,7 +154,15 @@ print(invmatriz([[[1,2],[2,3]],[[4,5],[6,7]]]))
             mod(c1)
         else:
             break
-
+            """
+    H = escxmatr(1/(2**(1/2)),[[[1,0],[1,0]],[[1,0],[-1,0]]])
+    X = [[[0,0],[1,0]],[[1,0],[0,0]]]
+    #print(H)
+    M1 = protens(H,H)
+    M2 = protens(H,X)
+    for i in M1:
+        print(i)
+    #print(M2)
 
 main()
-"""
+
