@@ -115,10 +115,20 @@ def protens(m1,m2):
                     res[len(m2)*i+k][len(m2[0])*j+l] = mult(m1[i][j],m2[k][l])
     return res
 
-"""def mulmatr(m1,m2):
+def mulmatr(m1,m2):
     if(len(m1[0])!=len(m2)): return
     sol = [[0 for i in range(len(m1))] for j in range(len(m2[0]))]
-    for i in range()"""
+    for l in range(len(m2[0])):
+        for i in range(len(m1)):
+            su = [0,0]
+            for j in range(len(m1[0])):
+                su = suma(su,mult(m1[i][j],m2[j][l]))
+            sol[i][l] = su
+    return sol
+                
+            
+                
+                
 
 
 """print(invect([[1,2],[2,3]]))
@@ -163,6 +173,8 @@ def main():
     for i in M1:
         print(i)
     #print(M2)
+    print()
+    print(mulmatr([[[1,2],[2,3],[3,5]],[[4,5],[6,7],[4,7]]],[[[1,2],[2,3]],[[4,5],[6,7]],[[6,1],[1,2]]]))
 
 main()
 
