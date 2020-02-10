@@ -10,7 +10,7 @@ class TestMyModule(unittest.TestCase):
         su = calcomplex.suma([3,-1],[1,4])
         c1 = complex(3,-1)
         c2 = complex(1,4)
-        self.assertEqual( complex(su[0],su[1]), c1+c2)
+        self.assertEqual(complex(su[0],su[1]), c1+c2)
     def test_sub(self):
         re = calcomplex.resta([3,-1],[1,4])
         c1 = complex(3,-1)

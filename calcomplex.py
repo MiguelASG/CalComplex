@@ -46,7 +46,7 @@ def conj(c1):
 def pol(c1):
     ang = math.degrees(math.atan(c1[1]/c1[0]))
     p = mod(c1)
-    print('el vector tiene longitud '+str(p)+' desde el origen en un angulo de '+str(ang))
+    #print('el vector tiene longitud '+str(p)+' desde el origen en un angulo de '+str(ang))
     return [p,ang]
     
     
@@ -58,7 +58,9 @@ def cart(p,ang):
     return [a,b]
     #print('rta: ( '+str(a)+', '+str(b)+'i )')
 
-
+def fase(c1):
+    f = pol(c1)
+    return (f[1]%91)
 
 
 def sumvect(v1,v2):
@@ -105,6 +107,26 @@ def escxmatr(e, m):
         sol.append(list())
         sol[i]=escxvec(e,m[i])
     return sol
+
+
+def transpuesta(m1):
+    res = [[0 for i in range(len(m1[0])] for j in range(len(m1)]
+    for i in range(len(m1)):
+        for j in range(len(m1[0])):
+            res[j][i] = m1[i][j]
+    return res
+
+def conjmv(m1):
+    res = [[0 for i in range(len(m1)] for j in range(len(m1[0])]
+    for i in range(len(m1)):
+        for j in range(len(m1[0])):
+            res[i][j] = conj(m[i][j])
+    return res
+
+def adjunta(m1):
+    res = transpuesta(conjmv(m1))
+    return res
+
 
 def protens(m1,m2):
     res = [[0 for i in range(len(m1)*len(m2))] for j in range(len(m1[0])*len(m2[0]))]
