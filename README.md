@@ -86,16 +86,28 @@
 ### mulmatr(M,M) retorna un M.
 
 ## Función para calcular la "acción" de una matriz sobre un vector.
+### halla el accion entre una matriz y un vector de numeros complejos.
+### accion(M,V) retorna un M.
 
 ## Producto interno de dos vectores
+### halla el producto interno entre dos vectores de numeros complejos.
+ ### innervec(V,V) retorna un C.
 
 ## Norma de un vector
+### halla la norma de un vector de numeros complejos.
+### norma(V) retorna un R.
 
 ## Distancia entre dos vectores
+### halla la distacia entre dos vectores de numeros complejos.
+### distanciavec(V,V) retorna un R.
 
 ## Revisar si una matriz es unitaria
+### comprueba si una matriz de numeros complejos es unitaria.
+### matuni(M) retorna un bool(True o False).
 
 ## Revisar si una matriz es Hermitiana
+### comprueba si una matriz de numeros complejos es hermitiana.
+### hermitian(M) retorna un bool(True o False).
 
 ## Producto tensor de dos matrices/vectores
 ### halla el producto tensor de dos vectores complejos.
