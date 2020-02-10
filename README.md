@@ -34,31 +34,69 @@
 ### conj(C) retorna un C
 
 ## Conversión entre representaciones polar y cartesiano de un numero complejo
-### dado un numero complejo, retorna la representacion polar, y dando la representacion polar da el numero complejo:
-## Complejo a Polar:
-### pol(C) retorna [E,ang].
-## Polar a Complejo:
-### cart(E,ang) retorna un C.
+#### dado un numero complejo, retorna la representacion polar, y dando la representacion polar da el numero complejo:
+### Complejo a Polar:
+#### pol(C) retorna [E,ang].
+### Polar a Complejo:
+#### cart(E,ang) retorna un C.
 
 
 ## fase de un número complejo:
 ### halla la fase de un numero complejo:
 ### fase(C) retorna un E.
 
-Adición de vectores complejos.
-Inverso (aditivo) de un vector complejo.
-Multiplicación de un escalar por un vector complejo.
-Adición de matrices complejas.
-Inversa (aditiva) de una matriz compleja.
-Multiplicación de un escalar por una matriz compleja.
-Transpuesta de una matriz/vector
-Conjugada de una matriz/vector
-Adjunta (daga) de una matriz/vector
-Producto de dos matrices (de tamaños compatibles)
-Función para calcular la "acción" de una matriz sobre un vector.
-Producto interno de dos vectores
-Norma de un vector
-Distancia entre dos vectores
-Revisar si una matriz es unitaria
-Revisar si una matriz es Hermitiana
-Producto tensor de dos matrices/vectores
+## Adición de vectores complejos.
+### Suma dos vectores complejos.
+### sumvect(V,V) retorna un V.
+
+## Inverso (aditivo) de un vector complejo.
+### halla el inverso aditivo de un vector complejo.
+### invect(V) retorna un V.
+
+## Multiplicación de un escalar por un vector complejo.
+### multiplica un escalar por un vector complejo.
+### escxvec(E,V) retorna un V.
+
+## Adición de matrices complejas.
+### Suma dos matrices complejas.
+### sumatriz(M,M) retorna un M.
+
+## Inversa (aditiva) de una matriz compleja.
+### halla el inverso aditivo de una matriz compleja.
+### invmatriz(M) retorna un M.
+
+## Multiplicación de un escalar por una matriz compleja.
+### multiplica un escalar por una matriz compleja.
+### escxmat+r(E,M) retorna un M.
+
+## Transpuesta de una matriz/vector
+### transpone una matriz o un vector.
+### traspuesta(M) retorna un M.
+
+## Conjugada de una matriz/vector
+### halla la conjugada de una matriz o un vector complejo.
+### conjmv(M) retorna un M.
+
+## Adjunta (daga) de una matriz/vector
+### halla la adjunta de una matriz compleja.
+### adjunta(M) retorna un M.
+
+## Producto de dos matrices (de tamaños compatibles)
+### halla el producto de dos vectores complejos.
+### mulmatr(M,M) retorna un M.
+
+## Función para calcular la "acción" de una matriz sobre un vector.
+
+## Producto interno de dos vectores
+
+## Norma de un vector
+
+## Distancia entre dos vectores
+
+## Revisar si una matriz es unitaria
+
+## Revisar si una matriz es Hermitiana
+
+## Producto tensor de dos matrices/vectores
+### halla el producto tensor de dos vectores complejos.
+### protens(M,M) retorna una M.
