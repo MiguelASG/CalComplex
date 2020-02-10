@@ -110,14 +110,14 @@ def escxmatr(e, m):
 
 
 def transpuesta(m1):
-    res = [[0 for i in range(len(m1[0])] for j in range(len(m1)]
+    res = [[0 for i in range(len(m1[0]))] for j in range(len(m1))]
     for i in range(len(m1)):
         for j in range(len(m1[0])):
             res[j][i] = m1[i][j]
     return res
 
 def conjmv(m1):
-    res = [[0 for i in range(len(m1)] for j in range(len(m1[0])]
+    res = [[0 for i in range(len(m1))] for j in range(len(m1[0]))]
     for i in range(len(m1)):
         for j in range(len(m1[0])):
             res[i][j] = conj(m[i][j])
@@ -127,6 +127,47 @@ def adjunta(m1):
     res = transpuesta(conjmv(m1))
     return res
 
+def accion(m,v):
+    if (len(m[0])!=len(v)): return
+    else:
+        return multmatr(m,v)
+
+def innervec(v1,v2):
+    if len(v1)!=len(v2):return
+    else:
+        s = [0,0]
+        for i in range(len(v2)):
+            s = suma(s,mult(v2[i],v1[i]))
+    return s
+
+def normavec(v):
+    s = [0,0]
+    for i in range(len(v)):
+        s = suma(s,mult(v[i],conj(v[i])))
+    s = math.sqrt(s[0])
+    return s
+
+def distanciavec(v1,v2):
+    s = [0,0]
+    if len(v1)!=len(v2): return 
+    for i in range(len(v1)):
+        s = suma(s,mult(conj(resta(v1[i],v2[i])), resta(v1[i], v2[i])))
+    s = math.sqrt(s[0])
+    return s
+
+def matuni(m):
+    if len(m)!=len(m[0]): return
+    iden = iden = [[[1,0] if i==j else [0,0] for i in range(len(m))]for j in range(len(m))]
+    a,b = [0,0],[0,0]
+    a = mulmatr(m,adjunta(m))
+    b = mulmatr(adjunta(m),m)
+    if a==b==iden: True
+    return False
+
+def hermitian(m):
+    a = adjunta(m)
+    if m == a: return True
+    return False
 
 def protens(m1,m2):
     res = [[0 for i in range(len(m1)*len(m2))] for j in range(len(m1[0])*len(m2[0]))]
