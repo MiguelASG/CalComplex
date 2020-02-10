@@ -36,8 +36,8 @@
 ## Conversión entre representaciones polar y cartesiano de un numero complejo
 ### dado un numero complejo, retorna la representacion polar, y dando la representacion polar da el numero complejo:
 ## Complejo a Polar:
-### pol(C) retorna una lista de dos posiciones, la primera posicion representa el modulo del numero complejo y la segunda posicion representa el angulo.
-### Polar a Complejo:
+### pol(C) retorna [E,ang].
+## Polar a Complejo:
 ### cart(E,ang) retorna un C.
 
 
