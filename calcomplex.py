@@ -6,47 +6,42 @@ def suma(c1, c2):
     a = c1[0]+c2[0]
     b = c1[1]+c2[1]
     return [a,b]
-    #print('rta: ( '+str(a)+', '+str(b)+'i )')
 
 def resta(c1, c2):
     a,b = 0, 0
     a = c1[0]-c2[0]
     b = c1[1]-c2[1]
     return [a,b]
-    #print('rta: ( '+str(a)+', '+str(b)+'i )')
 
 def mult(c1,c2):
     a,b = 0, 0
     a = (c1[0]*c2[0] - c1[1]*c2[1])
     b = (c1[0]*c2[1] + c1[1]*c2[0])
     return [a,b]
-    #print('rta: ( '+str(a)+', '+str(b)+'i )')
 
 
 def div(c1,c2):
     a,b = 0, 0
+    if c2[0]==c2[1]==0: return "imposible"
     a = (c1[0]*c2[0]+ c1[1]*c2[1])/(c2[0]**2+c2[1]**2)
     b = (c2[0]*c1[1]- c1[0]*c2[1])/(c2[0]**2+c2[1]**2)
     return [a,b]
-    #print('rta: ( '+str(a)+', '+str(b)+'i )')
 
 def mod(c1):
     a = c1[0]**2
     b = c1[1]**2
     rta = (a+b)**(1/2)
     return rta
-    #print('rta: '+str(rta))
 
 def conj(c1):
     a = c1[0]
     b = -c1[1]
     return [a,b]
-    #print('rta: ( '+str(a)+', '+str(b)+'i )')
 
 def pol(c1):
+    if c1[0]==0: return "imposible"
     ang = math.degrees(math.atan(c1[1]/c1[0]))
     p = mod(c1)
-    #print('el vector tiene longitud '+str(p)+' desde el origen en un angulo de '+str(ang))
     return [p,ang]
     
     
@@ -56,7 +51,6 @@ def cart(p,ang):
     a = p*math.cos(ang)
     b = p*math.sin(ang)
     return [a,b]
-    #print('rta: ( '+str(a)+', '+str(b)+'i )')
 
 def fase(c1):
     f = pol(c1)
@@ -66,7 +60,7 @@ def fase(c1):
 def sumvect(v1,v2):
     sol = []
     if len(v1)!=len(v2):
-        return
+        return "imposible"
     else:
         for i in range(len(v1)):
             sol.append(suma(v1[i],v2[i]))
@@ -87,7 +81,7 @@ def escxvec(es,v1):
 def sumatriz(m1,m2):
     sol = []
     if (len(m1)!=len(m2)) or (len(m1[0])!=len(m2[0])):
-        return 
+        return "imposible"
     else:
         for i in range(len(m1)):
             sol.append(list())
@@ -128,12 +122,12 @@ def adjunta(m1):
     return res
 
 def accion(m,v):
-    if (len(m[0])!=len(v)): return
+    if (len(m[0])!=len(v)): return "imposible" 
     else:
         return multmatr(m,v)
 
 def innervec(v1,v2):
-    if len(v1)!=len(v2):return
+    if len(v1)!=len(v2):return "imposible"
     else:
         s = [0,0]
         for i in range(len(v2)):
@@ -149,15 +143,15 @@ def normavec(v):
 
 def distanciavec(v1,v2):
     s = [0,0]
-    if len(v1)!=len(v2): return 
+    if len(v1)!=len(v2): return  "imposible"
     for i in range(len(v1)):
         s = suma(s,mult(conj(resta(v1[i],v2[i])), resta(v1[i], v2[i])))
     s = math.sqrt(s[0])
     return s
 
 def matuni(m):
-    if len(m)!=len(m[0]): return
-    iden = iden = [[[1,0] if i==j else [0,0] for i in range(len(m))]for j in range(len(m))]
+    if len(m)!=len(m[0]): return "imposible"
+    iden = [[[1,0] if i==j else [0,0] for i in range(len(m))]for j in range(len(m))]
     a,b = [0,0],[0,0]
     a = mulmatr(m,adjunta(m))
     b = mulmatr(adjunta(m),m)
@@ -179,7 +173,7 @@ def protens(m1,m2):
     return res
 
 def mulmatr(m1,m2):
-    if(len(m1[0])!=len(m2)): return
+    if(len(m1[0])!=len(m2)): return "imposible"
     sol = [[0 for i in range(len(m1))] for j in range(len(m2[0]))]
     for l in range(len(m2[0])):
         for i in range(len(m1)):
@@ -194,19 +188,8 @@ def mulmatr(m1,m2):
                 
 
 
-"""print(invect([[1,2],[2,3]]))
-print(escxvec(5,[[1,2],[2,3]]))
-print(sumatriz([[[1,2],[2,3]],[[4,5],[6,7]]],[[[9,8],[8,7]],[[5,4],[1,0]]]))
-print(invmatriz([[[1,2],[2,3]],[[4,5],[6,7]]]))
-print(escxmatr(5,[[[1,2],[2,3]],[[4,5],[6,7]]]))
-print(protens([[[1,2],[2,3]],[[4,5],[6,7]]],[[[9,8],[8,7]],[[5,4],[1,0]]]))
 """
-
-
-
-
 def main():
-    """
     while True:
         l = stdin.readline().strip() 
         if l == '': break
@@ -227,7 +210,6 @@ def main():
             mod(c1)
         else:
             break
-            """
     H = escxmatr(1/(2**(1/2)),[[[1,0],[1,0]],[[1,0],[-1,0]]])
     X = [[[0,0],[1,0]],[[1,0],[0,0]]]
     #print(H)
@@ -240,4 +222,4 @@ def main():
     print(mulmatr([[[1,2],[2,3],[3,5]],[[4,5],[6,7],[4,7]]],[[[1,2],[2,3]],[[4,5],[6,7]],[[6,1],[1,2]]]))
 
 main()
-
+"""
