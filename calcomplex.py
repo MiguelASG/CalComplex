@@ -184,6 +184,16 @@ def mulmatr(m1,m2):
     return sol
                 
             
+def probabilidad(v):
+    s = 0
+    l = []
+    for i in v:
+        s += i[0]**2+(i[1]**2)
+        l.append(i[0]**2+i[1]**2)
+    s = math.sqrt(s)
+    for i in range(len(l)):
+        l[i] = l[i]/(s**2)
+    return l
                 
                 
 
